@@ -41,7 +41,7 @@
       text-align: center;
       font-size: 22px;
       margin-top: 0;
-      color: #e63946;
+      color: #000;
     }
 
     .info-box {
@@ -117,6 +117,23 @@
       background-color: #c62828;
     }
 
+    .receiver-name {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #000;
+    }
+
+    .extra-image {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .extra-image img {
+      max-width: 220px;
+      border-radius: 8px;
+    }
+
     .copied {
       color: green;
       font-size: 12px;
@@ -151,9 +168,15 @@
   <button class="copy-btn" onclick="copyText('emola')">📋 Copiar Número</button>
   <div class="copied" id="copied-emola"></div>
 
+  <p class="receiver-name">Nome do Receptor: Diogo Pedro Lupatua</p>
+
   <a class="send-btn" href="https://api.whatsapp.com/send?phone=258869916447&text=Quero%20adquirir%20agora%20o%20%22Truque%20da%20esponja%22!" target="_blank">
     📤 Enviar o Comprovante Agora
   </a>
+
+  <div class="extra-image">
+    <img src="https://i.imgur.com/ZDByYap.png" alt="Instruções">
+  </div>
 
 </div>
 
