@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f2f2f2;
+      background-color: #fffafc;
       margin: 0;
       padding: 0;
     }
@@ -15,24 +15,43 @@
     .container {
       max-width: 480px;
       background: white;
-      margin: 40px auto;
+      margin: 30px auto;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h1 {
-      color: #2a9d8f;
+    .top-image {
       text-align: center;
     }
 
+    .top-image img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #e63946;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 0;
+      color: #e63946;
+    }
+
     .info-box {
-      background-color: #e0f7fa;
+      background-color: #ffe6e6;
       padding: 15px;
-      border-left: 5px solid #0097a7;
+      border-left: 5px solid #e63946;
       margin: 20px 0;
       border-radius: 6px;
       font-size: 14px;
+      color: #333;
     }
 
     label {
@@ -66,7 +85,7 @@
     .copy-btn {
       margin-top: 5px;
       margin-bottom: 15px;
-      background-color: #26a69a;
+      background-color: #e63946;
       color: white;
       padding: 8px 12px;
       border: none;
@@ -76,33 +95,26 @@
     }
 
     .copy-btn:hover {
-      background-color: #1e857d;
+      background-color: #c62828;
     }
 
-    .note {
-      font-size: 12px;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: #fff;
-      border-radius: 50%;
+    .send-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #e63946;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
       text-align: center;
-      font-size: 30px;
-      z-index: 1000;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .whatsapp-float img {
-      margin-top: 15px;
-      width: 30px;
+    .send-btn:hover {
+      background-color: #c62828;
     }
 
     .copied {
@@ -116,13 +128,17 @@
 <body>
 
 <div class="container">
+
+  <div class="top-image">
+    <img src="https://i.imgur.com/mygXneI.png" alt="Truque da Esponja">
+  </div>
+
   <h1>Métodos de Pagamento - Truque da Esponja</h1>
-  <p style="text-align:center;">Valor: <strong>197 MT</strong></p>
+  <p class="price">💰 Preço: <strong>197 MT</strong></p>
 
   <div class="info-box">
-    💡 <strong>Importante:</strong><br>
-    Para concluir a compra, faça o pagamento para um dos números abaixo via M-Pesa ou e-Mola.<br><br>
-    Após isso, clique no botão de WhatsApp no canto inferior direito para enviar o comprovante e receber seu produto.
+    🔴 <strong>Atenção:</strong><br>
+    Após o pagamento para um dos números abaixo, clique no botão vermelho “Enviar o Comprovante Agora” e nos envie a prova via WhatsApp. Em minutos, você receberá seu produto digital!
   </div>
 
   <label>Número para pagamento via M-Pesa:</label>
@@ -134,18 +150,18 @@
   <input type="text" id="emola" value="871137381" readonly />
   <button class="copy-btn" onclick="copyText('emola')">📋 Copiar Número</button>
   <div class="copied" id="copied-emola"></div>
-</div>
 
-<a href="https://api.whatsapp.com/send?phone=258869916447&text=Quero%20adquirir%20agora%20o%20%22Truque%20da%20esponja%22!" 
-   class="whatsapp-float" target="_blank" title="Enviar comprovante">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-</a>
+  <a class="send-btn" href="https://api.whatsapp.com/send?phone=258869916447&text=Quero%20adquirir%20agora%20o%20%22Truque%20da%20esponja%22!" target="_blank">
+    📤 Enviar o Comprovante Agora
+  </a>
+
+</div>
 
 <script>
   function copyText(id) {
     var copyText = document.getElementById(id);
     copyText.select();
-    copyText.setSelectionRange(0, 99999); 
+    copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
 
     const confirm = document.getElementById('copied-' + id);
