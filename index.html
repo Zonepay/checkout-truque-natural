@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Truque da Esponja - Checkout</title>
+  <title>Métodos de Pagamento - Truque da Esponja</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,9 +45,22 @@
       width: 100%;
       padding: 12px;
       margin-top: 5px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 6px;
       font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .copied-animate {
+      animation: blinkSuccess 0.6s ease;
+      border-color: #2ecc71;
+      background-color: #eafaf1;
+    }
+
+    @keyframes blinkSuccess {
+      0%   { background-color: #eafaf1; }
+      50%  { background-color: #c8f7dc; }
+      100% { background-color: #eafaf1; }
     }
 
     .copy-btn {
@@ -103,13 +116,13 @@
 <body>
 
 <div class="container">
-  <h1>Checkout - Truque da Esponja</h1>
+  <h1>Métodos de Pagamento - Truque da Esponja</h1>
   <p style="text-align:center;">Valor: <strong>197 MT</strong></p>
 
   <div class="info-box">
     💡 <strong>Importante:</strong><br>
-    Para concluir a compra, você deve fazer o pagamento para um dos números abaixo via M-Pesa ou e-Mola. <br><br>
-    Após o pagamento, clique no botão do WhatsApp no canto inferior direito para enviar o comprovante e receber seu produto imediatamente.
+    Para concluir a compra, faça o pagamento para um dos números abaixo via M-Pesa ou e-Mola.<br><br>
+    Após isso, clique no botão de WhatsApp no canto inferior direito para enviar o comprovante e receber seu produto.
   </div>
 
   <label>Número para pagamento via M-Pesa:</label>
@@ -132,12 +145,18 @@
   function copyText(id) {
     var copyText = document.getElementById(id);
     copyText.select();
-    copyText.setSelectionRange(0, 99999); // para mobile
+    copyText.setSelectionRange(0, 99999); 
     document.execCommand("copy");
 
     const confirm = document.getElementById('copied-' + id);
     confirm.innerText = "✅ Número copiado!";
-    setTimeout(() => { confirm.innerText = ""; }, 3000);
+    
+    copyText.classList.add('copied-animate');
+
+    setTimeout(() => {
+      confirm.innerText = "";
+      copyText.classList.remove('copied-animate');
+    }, 2000);
   }
 </script>
 
